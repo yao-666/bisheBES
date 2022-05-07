@@ -145,11 +145,4 @@ public class NeuqOrderVo {
     @ApiModelProperty("订单备注")
     private String note;
 
-    ///**
-    // * 删除状态：0->未删除；1->已删除
-    // */
-    //@ExcelProperty(value = "删除状态：0->未删除；1->已删除")
-    //@ApiModelProperty("删除状态：0->未删除；1->已删除")
-    //private Integer deleteStatus;
-
 }

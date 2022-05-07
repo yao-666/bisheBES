@@ -92,7 +92,6 @@ public class NeuqOrderServiceImpl implements INeuqOrderService {
                     mapList.add(item);
                 }
             }
-
             for (NeuqOrderVo orderVo : orderList) {
                 OrderDetail orderDetail = BeanUtil.toBean(orderVo, OrderDetail.class);
                 orderDetail.setItemVos(itemMap.get(orderDetail.getOrderSn()));
@@ -237,6 +236,44 @@ public class NeuqOrderServiceImpl implements INeuqOrderService {
         }
     }
 
+    //public void writeExcelDetail(HttpServletResponse response, List<T> orderList,List<T> itemList,String fileName){
+    //    ExcelWriter excelWriter = null;
+    //    try {
+    //        String filename = encodingFilename(fileName);
+    //        response.reset();
+    //        ////在响应头插入Access-Control-Allow-Origin为’*‘,解决跨域问题
+    //        response.setHeader("Access-Control-Allow-Origin", "*");
+    //        FileUtils.setAttachmentResponseHeader(response, filename);
+    //        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8");
+    //        //新建excelWriter
+    //        excelWriter = EasyExcel.write(response.getOutputStream()).build();
+    //        //写入订单列表（sheet1）
+    //        WriteSheet sheet1 = EasyExcel.writerSheet(0, "订单列表").head(NeuqOrderVo.class)
+    //            // 自动适配
+    //            .registerWriteHandler(new LongestMatchColumnWidthStyleStrategy())
+    //            // 大数值自动转换 防止失真
+    //            .registerConverter(new ExcelBigNumberConvert())
+    //            .build();
+    //        //向sheet0写入数据 传入空list这样只导出表头
+    //        excelWriter.write(new ArrayList<>(), sheet1);
+    //        //写入订单明细表表头（sheet2）
+    //        WriteSheet sheet2 = EasyExcel.writerSheet(1, "订单明细表").head(.class)
+    //            // 自动适配
+    //            .registerWriteHandler(new LongestMatchColumnWidthStyleStrategy())
+    //            // 大数值自动转换 防止失真
+    //            .registerConverter(new ExcelBigNumberConvert())
+    //            .build();
+    //        //向sheet0写入数据 传入空list这样只导出表头
+    //        excelWriter.write(new ArrayList<>(), sheet2);
+    //    } catch (IOException e) {
+    //        throw new RuntimeException("导出Excel模板异常");
+    //    } finally {
+    //        //无论是否成功，都关闭导出流
+    //        if (excelWriter != null) {
+    //            excelWriter.finish();
+    //        }
+    //    }
+    //}
 
     /**
      * 下载订单导入excel模板
@@ -273,7 +310,6 @@ public class NeuqOrderServiceImpl implements INeuqOrderService {
                 .build();
             //向sheet0写入数据 传入空list这样只导出表头
             excelWriter.write(new ArrayList<>(), sheet2);
-
         } catch (IOException e) {
             throw new RuntimeException("导出Excel模板异常");
         } finally {

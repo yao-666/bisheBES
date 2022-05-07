@@ -157,6 +157,13 @@ public class NeuqOrderItemServiceImpl implements INeuqOrderItemService {
         return  baseMapper.selectVoOne(lqw,NeuqOrderItemBo.class);
     }
 
+    /**
+     * 批量保存数据
+     *
+     * @author yxy
+     * @Date  2022/4/27
+     * @param insertDataList List<NeuqOrderItem>订单明细对象List
+     **/
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean saveBatch(List<NeuqOrderItem> insertDataList) {
@@ -167,6 +174,13 @@ public class NeuqOrderItemServiceImpl implements INeuqOrderItemService {
         }
     }
 
+    /**
+     * 批量更新数据
+     *
+     * @author yxy
+     * @Date  2022/4/27
+     * @param updateDataList List<NeuqOrderItem>订单明细对象List
+     **/
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean updateBatch(List<NeuqOrderItem> updateDataList) {
@@ -177,9 +191,26 @@ public class NeuqOrderItemServiceImpl implements INeuqOrderItemService {
         }
     }
 
+    /**
+     * 根据订单列表对象list批量查询数据
+     *
+     * @author yxy
+     * @Date  2022/4/27
+     * @param orderList List<NeuqOrderItem>订单列表对象List
+     **/
     @Override
     public List<NeuqOrderItemVo> selectListByOrderSn(List<NeuqOrderVo> orderList) {
         return baseMapper.selectListByOrderSn(orderList);
+    }
+
+    @Override
+    public NeuqOrderItem selectById(Long itemId) {
+        return baseMapper.selectById(itemId);
+    }
+
+    @Override
+    public int update(NeuqOrderItem item) {
+        return baseMapper.updateById(item);
     }
 
 }

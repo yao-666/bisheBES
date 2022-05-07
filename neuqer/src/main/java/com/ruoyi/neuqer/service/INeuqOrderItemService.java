@@ -97,4 +97,9 @@ public interface INeuqOrderItemService {
      * @return List<NeuqOrderItemVo> 结果
      */
     List<NeuqOrderItemVo> selectListByOrderSn(List<NeuqOrderVo> orderList);
+
+
+    NeuqOrderItem selectById(Long itemId);
+
+    int  update(NeuqOrderItem item);
 }

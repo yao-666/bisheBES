@@ -97,8 +97,8 @@
         <if test="order.singleNumber != null">
             AND i.single_number = #{order.singleNumber}
         </if>
-        <if test="order.totalAmount != null">
-            AND i.total_quantity = #{order.totalAmount}
+        <if test="order.totalQuantity != null">
+            AND i.total_quantity = #{order.totalQuantity}
         </if>
         <if test="order.params.beginTime != null and order.params.beginTime != ''">  <!-- 开始时间检索 -->
             AND date_format(n.payment_time,'%y%m%d') &gt;= date_format(#{order.params.beginTime},'%y%m%d')

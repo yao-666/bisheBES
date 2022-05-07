@@ -59,9 +59,9 @@ public class NeuqOrderController extends BaseController {
     }
 
     /**
-     * 导出订单列表列表
+     * 导出全部订单列表列表
      */
-    @ApiOperation("导出全部订单列表")
+    @ApiOperation("导出订单列表")
     @SaCheckPermission("neuqer:order:export")
     @Log(title = "订单列表", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
