@@ -100,7 +100,12 @@ public class NeuqOrderItemVo {
     @ExcelProperty(value = "已取数量")
     @ApiModelProperty("已取数量")
     private Integer takeNumber;
-
+    /**
+     * 归还数量
+     */
+    @ExcelProperty(value = "归还数量")
+    @ApiModelProperty(value = "归还数量", required = true)
+    private Long returnNumber;
     /**
      * 售后状态
      */

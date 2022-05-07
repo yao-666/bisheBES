@@ -108,6 +108,11 @@ public class NeuqOrderItemBo extends BaseEntity {
     private Long takeNumber;
 
     /**
+     * 归还数量
+     */
+    @ApiModelProperty(value = "归还数量", required = true)
+    private Long returnNumber;
+    /**
      * 售后状态
      */
     @ApiModelProperty(value = "售后状态", required = true)

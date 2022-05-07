@@ -71,6 +71,10 @@ public class NeuqOrderItem extends BaseEntity {
      */
     private Long takeNumber;
     /**
+     * 归还数量
+     */
+    private Long returnNumber;
+    /**
      * 售后状态
      */
     private String afterStatus;
